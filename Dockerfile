@@ -1,7 +1,6 @@
-FROM alpine:3.5
-MAINTAINER Christian Musa <christianmusa@gmail.com>
+FROM alpine:latest
 
-RUN apk update && apk add fail2ban && mkdir /var/run/fail2ban
+RUN apk add --update --no-cache fail2ban && mkdir -p /var/run/fail2ban
 
-CMD ["-f", "start"]
 ENTRYPOINT ["/usr/bin/fail2ban-client"]
+CMD ["-f", "start"]
